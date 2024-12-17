@@ -1,31 +1,35 @@
 // selenium key words, need to requrie first before use
 const {Builder, By, Key} = require("selenium-webdriver");
 const assert = require("assert");
-var should = require("chai").should();
 
-async function example() {
-    // launch the browser
-    let driver = await new Builder().forBrowser("chrome").build();
+const {USER_INFO} = require('../testingConstants');
 
-    // navigate to our application
-    await driver.get("https://lambdatest.github.io/sample-todo-app/");
+describe("add todo" , function() {
+    it("successfully added todo", async function() {
+        // launch the browser
+        let driver = await new Builder().forBrowser("chrome").build();
 
-    // add a todo
-    await driver.findElement(By.id("sampletodotext")).sendKeys("Learn Selenium", Key.RETURN);
+        // navigate to our application
+        await driver.get("https://dev.aris.mto.gov.on.ca/edtW/login/login.jsp");
 
-    // assert
-    let todoText = await driver.findElement(By.xpath("/html/body/div/div/div/ul/li[6]/span")).getText().then(function(value){
-        return value;
+        // add a todo
+        await driver.findElement(By.id("userId")).sendKeys(USER_INFO.userid);
+        await driver.sleep(2000);
+        await driver.findElement(By.id("password")).sendKeys(USER_INFO.password, Key.RETURN);
+        await driver.sleep(2000);
+
+        // assert
+        let Text = await driver.findElement(By.xpath("/html/body/div[2]/table/tbody/tr/td[1]/ul/li[1]/a")).getText().then(function(value){
+            return value;
+        });
+
+        await driver.sleep(2000);
+        // assert using node assertion
+        assert.strictEqual(Text, "Order Product");
+
+        await driver.sleep(2000);
+
+        // close the browser.
+        await driver.quit();
     });
-    
-    // assert using node assertion
-    assert.strictEqual(todoText, "Learn Selenium");
- 
-    // assert using chai should
-    todoText.should.equal("Learn Selenium");
-
-    // close the browser.
-    await driver.quit();
-};
-
-example();
+});
