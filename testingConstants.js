@@ -1,11 +1,10 @@
 // give user freedom to choose search criteria.
-
 const USER_INFO = {
     userid: "liufs",
     password: "Password3"
 };
 
-// put in the product you wanna order here
+// put in the product you wanna order here. find the product you wanna order in objects below. and fill the criteria
 const product = '';
 
 
@@ -56,7 +55,6 @@ const OrderProductC2 = {
     // AU1 - AU24
     AuthorizedUse: 'AU1'
 };
-
 
 // CVD001 DLHCA999 DRAABS DRACABS DRCFOI999 DRECA999 DRVABS DRVABSRI DRVCABS DRVNMS DRVNMSC ISSDRVA 
 //  DL, REF, AU
@@ -123,7 +121,6 @@ const OrderProductV1 = {
     // Authorized Use: AU01 -AU24
     AU: 'AU01'
 };
-
 
 // PLT003 PLT004
 //    plate/VIN, searchfor, ref, AU
@@ -216,7 +213,6 @@ const OrderProductISSTOW = {
     // Authorized use: AU01 - AU24
     AU: 'AU01'
 }
-
 
 module.exports = { USER_INFO };
 
