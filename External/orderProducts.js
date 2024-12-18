@@ -28,37 +28,63 @@ describe("OrderProduct" , function() {
         // assert using node assertion
         assert.strictEqual(Text, "Order Product");
 
-        await driver.sleep(2000);
+        await driver.sleep(1000);
         
         // ********************************************************************************************************************
 
         // go order product page
         const selectAccountXPath = "/html/body/div[2]/div/h2";
 
-        driver.findElement(By.linkText("Order Product")).click();
+        await driver.findElement(By.linkText("Order Product")).click();
 
         await driver.sleep(2000);
 
         // ********************************************************************************************************************
 
         // select account and enter
-        driver.findElement(By.id("accountIdentifier00")).click();
+        await driver.findElement(By.id("accountIdentifier00")).click();
 
-        driver.findElement(By.id("btnEnter")).click();
+        await driver.findElement(By.id("btnEnter")).click();
         
         await driver.sleep(2000);
 
         // ********************************************************************************************************************
 
-        // select "immediate signle online" and select product 
-        driver.findElement(By.id(singleOnline)).click();
+        // select "immediate signle online" and select product then press enter
+        await driver.findElement(By.id("singleOnline")).click();
 
-        driver.findElement(By.xpath("/html/body/div[2]/div/form/table/tbody/tr[1]/td/fieldset/table/tbody/tr/td[2]/table/tbody/tr[1]/td[3]/select/option[2]")).click();
+        await driver.findElement(By.xpath("/html/body/div[2]/div/form/table/tbody/tr[1]/td/fieldset/table/tbody/tr/td[2]/table/tbody/tr[1]/td[3]/select/option[2]")).click();
 
-        driver.findElement(By.id(singleOnline)).click();
+        await driver.findElement(By.id("btnEnter")).click();
+        
+        await driver.sleep(2000);
 
+        // complete search criteria
+        await driver.findElement(By.xpath("/html/body/div[2]/div/form/table/tbody/tr[1]/td/fieldset/table/tbody/tr[1]/td[1]/select/option[3]")).click();
+        await driver.findElement(By.name("singleCriteria.criteriaDate")).sendKeys("2024-11-02");
 
+        await driver.findElement(By.id("subTypeSelection1")).click();
+        await driver.findElement(By.xpath("/html/body/div[2]/div/form/table/tbody/tr[1]/td/fieldset/table/tbody/tr[2]/td[1]/select/option[4]")).click();
+        await driver.findElement(By.id("subSearchType")).sendKeys("AB123");
 
+        await driver.findElement(By.id("confirm_button")).click();
+
+        await driver.sleep(2000);
+
+        // *********************************************************************************************************
+        // check if completed without err
+        let orderNumber;
+        try {
+            orderNumber = await driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/table/tbody/tr[1]/td/table/tbody/tr[1]/td[1]")).getText().then((value) => {
+                return value;
+            });
+        } catch(err) {
+            if (error.name === 'NoSuchElementError') {
+                console.log("ordering product faield");
+            }
+        }
+
+        // *********************************************************************************************************
         // close the browser.
         await driver.quit();
 
