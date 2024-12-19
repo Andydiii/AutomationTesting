@@ -5,12 +5,15 @@ const USER_INFO = {
 };
 
 // put in the product you wanna order here. find the product you wanna order in objects below. and fill the criteria
-const product = '';
+const product = 'CRU999';
+
+// 'signle' / multiple / batch
+const deliveryMethod = 'signle';
 
 
 // CRC999 CRU999 are orderable 
 const OrderProductC1 = {
-    orderableproduct: [CRC999, CRU999],
+    orderableproduct: ['CRC999', 'CRU999'],
 
     // options: 'MTO Collision Reference Number', 'Collision Date'
     searchCriteria1: 'Collision Date',
@@ -29,12 +32,12 @@ const OrderProductC1 = {
     reference: 'test',
 
     // AU1 - AU24
-    AuthorizedUse: 'AU1'
+    AuthorizedUse: 'AU01'
 };
 
 // CRCCRC CRCPBL CRCWA CRUCRC CRUPBL CRUWA 
 const OrderProductC2 = {
-    orderableproduct: [CRCCRC, CRCPBL, CRCWA, CRUCRC, CRUPBL, CRUWA],
+    orderableproduct: ['CRCCRC', 'CRCPBL', 'CRCWA', 'CRUCRC', 'CRUPBL', 'CRUWA'],
 
     // 'Collision Date'
     searchCriteria1: 'Collision Date',
@@ -59,7 +62,7 @@ const OrderProductC2 = {
 // CVD001 DLHCA999 DRAABS DRACABS DRCFOI999 DRECA999 DRVABS DRVABSRI DRVCABS DRVNMS DRVNMSC ISSDRVA 
 //  DL, REF, AU
 const OrderProductD1 = {
-    orderableproduct: [CVD001, DLHCA999, DRAABS, DRACABS, DRCFOI999, DRECA999, DRVABS, DRVABSRI, DRVCABS, DRVNMS, DRVNMSC, ISSDRVA],
+    orderableproduct: ['CVD001', 'DLHCA999', 'DRAABS', 'DRACABS', 'DRCFOI999', 'DRECA999', 'DRVABS', 'DRVABSRI', 'DRVCABS', 'DRVNMS', 'DRVNMSC', 'ISSDRVA'],
 
     // driver license:
     DL: 'A1111-11111-11111',
@@ -74,7 +77,7 @@ const OrderProductD1 = {
 // DSNCA999
 //  DL, searchFordate, Ref, AU
 const OrderProductD2 = {
-    orderableproduct: [DSNCA999],
+    orderableproduct: ['DSNCA999'],
 
     // driver license:
     DL: 'A1111-11111-11111',
@@ -92,7 +95,7 @@ const OrderProductD2 = {
 // RINCA999 
 // DL/RIN, searchFordate, ref, AU
 const OrderProductD3 = {
-    orderableproduct: [RINCA999],
+    orderableproduct: ['RINCA999'],
 
     // driver license/RIN:
     DL: 'A1111-11111-11111',
@@ -110,7 +113,7 @@ const OrderProductD3 = {
 // SVEH004 SVEH005 VEH003 VEH004 VEH005 VEHCA999 VINCA999
 //    VIN, Ref, AU
 const OrderProductV1 = {
-    orderableproduct: [SVEH004, SVEH005, VEH003, VEH004, VEH005, VEHCA999, VINCA999],
+    orderableproduct: ['SVEH004', 'SVEH005', 'VEH003', 'VEH004', 'VEH005', 'VEHCA999', 'VINCA999'],
 
     // VIN:
     VIN: 'A1111-11111-11111',
@@ -125,7 +128,7 @@ const OrderProductV1 = {
 // PLT003 PLT004
 //    plate/VIN, searchfor, ref, AU
 const OrderProductV4 = {
-    orderableproduct: [PLT003, PLT004],
+    orderableproduct: ['PLT003', 'PLT004'],
 
     VIN: 'A1111-11111-11111',
 
@@ -142,7 +145,7 @@ const OrderProductV4 = {
 // VINDCA999 
 //     VIN, searchFor, ref, AU
 const OrderProductV5 = {
-    orderableproduct: [VINDCA999],
+    orderableproduct: ['VINDCA999'],
 
     VIN: 'A1111-11111-11111',
 
@@ -159,7 +162,7 @@ const OrderProductV5 = {
 // PLCABS PLCASE PLCRLC PLCSBC PLDABS PLDAMP PLTDCA999 
 //    plate, searchfor, ref, AU
 const OrderProductP1 = {
-    orderableproduct: [PLCABS, PLCASE, PLCRLC, PLCSBC, PLDABS, PLDAMP, PLTDCA999 ],
+    orderableproduct: ['PLCABS', 'PLCASE', 'PLCRLC', 'PLCSBC', 'PLDABS', 'PLDAMP', 'PLTDCA999' ],
 
     // plate #:
     Plate: 'ABC 123',
@@ -177,7 +180,7 @@ const OrderProductP1 = {
 // PLT005 PLT006 PLTCA999 PLHCA999
 //    plate, ref , AU
 const OrderProductP2 = {
-    orderableproduct: [PLT005, PLT006, PLTCA999, PLHCA999],
+    orderableproduct: ['PLT005', 'PLT006', 'PLTCA999', 'PLHCA999'],
 
     // plate #:
     Plate: 'ABC 123',
@@ -193,7 +196,7 @@ const OrderProductP2 = {
 //      CVOR/RIN, REF, AU
 const OrderProductCV1 = {
 
-    orderableproduct: [CVO001, CVO2C999],
+    orderableproduct: ['CVO001', 'CVO2C999'],
 
     // CVOR/RIN #:
     CVOR: '001-234-567',
@@ -214,7 +217,7 @@ const OrderProductISSTOW = {
     AU: 'AU01'
 }
 
-module.exports = { USER_INFO };
+module.exports = { USER_INFO, product, OrderProductC1, OrderProductC2, deliveryMethod};
 
 
 
