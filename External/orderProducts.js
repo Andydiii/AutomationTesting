@@ -4,7 +4,7 @@ const assert = require("assert");
 const {Select} = require("selenium-webdriver");
 
 // input INFO
-const {USER_INFO, OrderProductC1} = require('../testingConstants');
+const {USER_INFO, OrderProductC1, deliveryMethod} = require('../testingConstants');
 const {product} = require('../testingConstants');
 
 

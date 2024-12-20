@@ -8,7 +8,7 @@ const USER_INFO = {
 const product = 'CRU999';
 
 // 'signle' / multiple / batch
-const deliveryMethod = 'signle';
+const deliveryMethod = 'single';
 
 
 // CRC999 CRU999 are orderable 
